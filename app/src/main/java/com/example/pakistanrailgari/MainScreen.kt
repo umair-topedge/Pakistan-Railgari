@@ -13,9 +13,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.Button
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,7 +32,7 @@ import com.example.pakistanrailgari.ui.theme.Purple40
 import network.chaintech.sdpcomposemultiplatform.sdp
 
 @Composable
-fun MainScreen(onBackPress: () -> Unit) {
+fun MainScreen(onBackPress: () -> Unit, onNavigateToAlarm: () -> Unit) {
 
     Scaffold(topBar = {
         SimpleTopBar(
@@ -44,9 +46,34 @@ fun MainScreen(onBackPress: () -> Unit) {
             modifier = Modifier
                 .fillMaxSize()
                 .background(Purple40) //Main Page Color
-                .padding(paddingValues)
+                .padding(paddingValues),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center
         ) {
-
+            Text(
+                text = "Welcome to Pakistan Railgari",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                color = Black,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 32.sdp)
+            )
+            
+            Button(
+                onClick = onNavigateToAlarm,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.sdp)
+                    .height(60.sdp)
+            ) {
+                Text(
+                    text = "Set Alarm",
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
 }

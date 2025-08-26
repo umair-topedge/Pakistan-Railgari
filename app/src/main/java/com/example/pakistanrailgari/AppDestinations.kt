@@ -15,4 +15,8 @@ class AppDestinations(
             popUpTo(Routes.SplashScreenRoutes) { inclusive = true }
         }
     }
+    
+    val navigateToAlarmScreen: () -> Unit = {
+        navController.navigate(Routes.AlarmScreenRoutes)
+    }
 }

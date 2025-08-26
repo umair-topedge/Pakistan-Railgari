@@ -2,11 +2,16 @@ package com.example.pakistanrailgari
 
 import kotlinx.serialization.Serializable
 
-sealed class Routes {
+@Serializable
+object Routes {
 
     @Serializable
-    data object SplashScreenRoutes : Routes()
+    data object SplashScreenRoutes
 
     @Serializable
-    data object MainScreenRoutes : Routes()
+    data object MainScreenRoutes
+    
+    @Serializable
+    data object AlarmScreenRoutes
+
 }
